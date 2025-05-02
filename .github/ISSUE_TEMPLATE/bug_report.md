@@ -1,38 +1,72 @@
----
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+description: Create a new bug report for us to investigate and fix.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Join [the Discord server](https://discord.gg/ZW4s47Ppw4) for questions and discussions.
+        If you would like to discuss new features, please select "Feature request" when creating a new issue instead.
+        Alternatively, you can join the Discord server and discuss ideas there.
+  - type: checkboxes
+    attributes:
+      label: Basic Troubleshooting
+      description: |-
+        Make sure you have checked the following first.
+        Options marked with (MANDATORY) MUST be done, otherwise your issue may be closed and locked without further response.
+      options:
+        - label: I have checked for similar issues (open AND closed), and my issue is not a duplicate. (MANDATORY)
+          required: true
+        - label: I have checked for pull requests that may already address my issue. (MANDATORY)
+          required: true
+        - label: I am using (and my issue is reproducible on) the latest version of youtube-source.
+          required: true
+        - label: My issue is reproducible with IPv6 rotation.
+          required: true
+        - label: I DO NOT confirm that this has been filled out truthfully.
+          required: true
+  - type: input
+    attributes:
+      label: "Version of youtube-source"
+      placeholder: "Example: 1.8.3"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: "The search query/queries, URL(s), playlist ID(s)/URL(s) or video ID(s)/URL(s) that triggered the issue"
+      description: |-
+        If a search query failed to load and threw an error, provide the entire query, including
+        the search prefix if applicable (i.e. "ytsearch:"/"ytmsearch:").
+        For other identifiers, include the complete, unaltered input.
+        If the error occurred when trying to PLAY a track (separate to LOADING), include the
+        video ID or complete URL.
+        If you are specifying multiple, please separate each item with a comma (item1, item2, ...)
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Code Example"
+      description: |-
+        Provide a minimum viable code sample that we can use to reproduce your issue.
+        Exclude any sensitive information, such as IP addresses, tokens, keys, etc.
+        If this is not applicable, just write "N/A"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Exception and Stacktrace"
+      description: |-
+        If your issue relates to an error thrown by youtube-source, please paste the error here.
+        Include the ENTIRE stacktrace if available, as well as JSON dump if one is provided.
+        You may redact sensitive information such as IP addresses, tokens, keys etc.
+        If this is not applicable, just write "N/A".
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: "What is your client configuration?"
+      description: |-
+        Specify a complete list of clients that you are using, as per your application.yml (if using Lavalink)
+        or constructor parameters (if invoking youtube-source directly).
+    validations:
+      required: true
